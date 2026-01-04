@@ -1,0 +1,48 @@
+<svg width="128" height="128" viewBox="0 0 128 128" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background glow effect -->
+  <defs>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <linearGradient id="cursorGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#007ACC;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#00D4FF;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Left cursor (solid - Human) -->
+  <g filter="url(#glow)">
+    <path d="M 30 40 L 30 88 L 42 76 L 48 92 L 56 89 L 50 73 L 62 73 Z" 
+          fill="url(#cursorGradient)" 
+          stroke="#007ACC" 
+          stroke-width="1.5"/>
+  </g>
+  
+  <!-- Right cursor (outlined - AI Mirror) -->
+  <g filter="url(#glow)" opacity="0.7">
+    <path d="M 98 40 L 98 88 L 86 76 L 80 92 L 72 89 L 78 73 L 66 73 Z" 
+          fill="none" 
+          stroke="url(#cursorGradient)" 
+          stroke-width="2.5" 
+          stroke-dasharray="4,2"/>
+  </g>
+  
+  <!-- Center connection lines (data flow) -->
+  <line x1="50" y1="60" x2="78" y2="60" 
+        stroke="#007ACC" 
+        stroke-width="1" 
+        opacity="0.4" 
+        stroke-dasharray="2,2"/>
+  <line x1="52" y1="68" x2="76" y2="68" 
+        stroke="#00D4FF" 
+        stroke-width="1" 
+        opacity="0.3" 
+        stroke-dasharray="2,2"/>
+  
+  <!-- Center dot (sync point) -->
+  <circle cx="64" cy="64" r="3" fill="#007ACC" opacity="0.6"/>
+</svg>

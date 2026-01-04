@@ -1,0 +1,11 @@
+node_modules
+dist
+*.vsix
+.vscode
+.mimicflow
+.DS_Store
+PHASE2_COMPLETE.md
+PHASE3_COMPLETE.md
+PROJECT_STATUS.md
+TEST.md
+verify-phase2.sh

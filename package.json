@@ -1,0 +1,109 @@
+{
+    "name": "mimicflow",
+    "displayName": "MimicFlow",
+    "description": "Cinematic preview tool for AI code generation - Watch your code write itself",
+    "version": "0.1.0",
+    "publisher": "mimicflow",
+    "engines": {
+        "vscode": "^1.85.0"
+    },
+    "categories": [
+        "Visualization",
+        "Other"
+    ],
+    "activationEvents": [
+        "*"
+    ],
+    "main": "./dist/extension/extension.js",
+    "contributes": {
+        "commands": [
+            {
+                "command": "mimicflow.openDashboard",
+                "title": "MimicFlow: Open Dashboard",
+                "icon": "$(play-circle)"
+            },
+            {
+                "command": "mimicflow.captureChange",
+                "title": "MimicFlow: Capture Current Change"
+            },
+            {
+                "command": "mimicflow.openPlayer",
+                "title": "MimicFlow: Open Player"
+            },
+            {
+                "command": "mimicflow.openPlaylist",
+                "title": "MimicFlow: Open Playlist"
+            },
+            {
+                "command": "mimicflow.triggerTest",
+                "title": "MimicFlow: Run Test (Generate Sample Ghost)"
+            },
+            {
+                "command": "mimicflow.clearSyncState",
+                "title": "MimicFlow: Clear Sync State"
+            },
+            {
+                "command": "mimicflow.shareGhostFile",
+                "title": "MimicFlow: Share Ghost File"
+            }
+        ],
+        "viewsContainers": {
+            "activitybar": [
+                {
+                    "id": "mimicflow",
+                    "title": "MimicFlow",
+                    "icon": "$(play-circle)"
+                }
+            ]
+        },
+        "views": {
+            "mimicflow": [
+                {
+                    "type": "webview",
+                    "id": "mimicflow.dashboard",
+                    "name": "History",
+                    "icon": "$(history)"
+                }
+            ]
+        }
+    },
+    "scripts": {
+        "vscode:prepublish": "npm run build",
+        "build": "npm run build:extension && npm run build:webview",
+        "build:extension": "tsc -p tsconfig.json",
+        "build:webview": "vite build",
+        "watch": "npm run watch:extension & npm run watch:webview",
+        "watch:extension": "tsc -watch -p tsconfig.json",
+        "watch:webview": "vite build --watch",
+        "dev": "vite",
+        "package": "vsce package",
+        "test": "node ./dist/test/runTest.js",
+        "lint": "eslint src --ext ts,tsx"
+    },
+    "devDependencies": {
+        "@types/diff-match-patch": "^1.0.36",
+        "@types/node": "^20.10.0",
+        "@types/react": "^18.2.45",
+        "@types/react-dom": "^18.2.18",
+        "@types/vscode": "^1.85.0",
+        "@typescript-eslint/eslint-plugin": "^6.15.0",
+        "@typescript-eslint/parser": "^6.15.0",
+        "@vitejs/plugin-react": "^4.2.1",
+        "@vscode/test-electron": "^2.3.8",
+        "autoprefixer": "^10.4.16",
+        "eslint": "^8.56.0",
+        "postcss": "^8.4.32",
+        "tailwindcss": "^3.4.0",
+        "typescript": "^5.3.3",
+        "vite": "^5.0.10",
+        "vite-plugin-static-copy": "^1.0.0"
+    },
+    "dependencies": {
+        "@monaco-editor/react": "^4.6.0",
+        "@vscode/codicons": "^0.0.44",
+        "diff-match-patch": "^1.0.5",
+        "monaco-editor": "^0.45.0",
+        "react": "^18.2.0",
+        "react-dom": "^18.2.0"
+    }
+}
