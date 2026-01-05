@@ -4,6 +4,7 @@
     "description": "Cinematic preview tool for AI code generation - Watch your code write itself",
     "version": "0.1.0",
     "publisher": "mimicflow",
+    "icon": "resources/dark/mimicflow.svg",
     "engines": {
         "vscode": "^1.85.0"
     },
@@ -52,7 +53,7 @@
                 {
                     "id": "mimicflow",
                     "title": "MimicFlow",
-                    "icon": "$(play-circle)"
+                    "icon": "resources/dark/mimicflow.svg"
                 }
             ]
         },
