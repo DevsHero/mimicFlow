@@ -11,7 +11,7 @@ import { ControlPanel } from './components/ControlPanel';
 
 export const PlayerApp: React.FC = () => {
     const [editor, setEditor] = useState<MonacoEditor.IStandaloneCodeEditor | null>(null);
-    const [speed, setSpeed] = useState(1);
+    const [speed, setSpeed] = useState(0.5);
     const [isFullScreen, setIsFullScreen] = useState(false);
     const monaco = useMonaco();
 

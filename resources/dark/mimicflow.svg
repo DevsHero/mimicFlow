@@ -1,6 +1,44 @@
 <svg width="128" height="128" viewBox="0 0 128 128" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <rect width="128" height="128" rx="24" fill="#6366F1"/>
-  <path d="M40 40 L64 64 L40 88" stroke="white" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
-  <path d="M68 64 L92 88" stroke="white" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" opacity="0.5"/>
-  <circle cx="92" cy="88" r="4" fill="white" opacity="0.5"/>
+    <defs>
+        <!-- Cyberpunk Gradient: Cyan to Deep Purple -->
+        <linearGradient id="cyber_grad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#00F3FF" />
+            <stop offset="100%" stop-color="#BC13FE" />
+        </linearGradient>
+        
+        <!-- Glow Effect for the Main Cursor -->
+        <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+            <feGaussianBlur stdDeviation="3" result="blur" />
+            <feComposite in="SourceGraphic" in2="blur" operator="over" />
+        </filter>
+    </defs>
+
+    <!-- Group: Centered and slightly rotated for dynamic flow -->
+    <g transform="translate(64, 64) rotate(-15) translate(-64, -64)">
+        
+        <!-- 1. The Mimic (History/Shadow) -->
+        <!-- Wireframe cursor, offset slightly back -->
+        <path d="M38 38 L54 94 L68 76 L92 100 L100 92 L76 68 L94 54 L38 38Z" 
+              stroke="url(#cyber_grad)" 
+              stroke-width="4" 
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-opacity="0.6"
+              fill="none"
+              transform="translate(-8, 8)" />
+
+        <!-- 2. The Flow (Active Action) -->
+        <!-- Solid cursor, sharp and glowing -->
+        <path d="M38 38 L54 94 L68 76 L92 100 L100 92 L76 68 L94 54 L38 38Z" 
+              fill="url(#cyber_grad)" 
+              filter="url(#glow)" 
+              stroke="#FFFFFF"
+              stroke-width="2"
+              stroke-opacity="0.8" />
+              
+        <!-- Optional: Motion Lines to suggest speed/flow -->
+        <path d="M20 50 L30 50" stroke="#00F3FF" stroke-width="3" stroke-linecap="round" opacity="0.6" />
+        <path d="M25 60 L35 60" stroke="#BC13FE" stroke-width="3" stroke-linecap="round" opacity="0.4" />
+        
+    </g>
 </svg>

@@ -43,6 +43,20 @@ export const useAnimationEngine = (
         };
     }, []);
 
+    // Reset and restart animation when speed changes during playback
+    useEffect(() => {
+        if (state.isPlaying) {
+            console.log('[AnimationEngine] Speed changed to', playbackSpeed, 'x - restarting playback');
+            // Clear current animation
+            if (animationRef.current) {
+                clearTimeout(animationRef.current);
+                animationRef.current = null;
+            }
+            // Continue from current step with new speed
+            playNextStep();
+        }
+    }, [playbackSpeed]);
+
     const reset = () => {
         console.log('[AnimationEngine] Resetting to original content');
 
@@ -149,8 +163,8 @@ export const useAnimationEngine = (
         console.log(`[AnimationEngine] Executing step ${currentStep}:`, action.type);
 
         executeAction(action, () => {
-            // Action complete, schedule next step
-            const delay = (action.delayMs || 100) / playbackSpeed;
+
+            const delay = (action.delayMs || 100) / (playbackSpeed * 0.7);
 
             setState(prev => ({
                 ...prev,
@@ -322,7 +336,8 @@ export const useAnimationEngine = (
                         }));
 
                         remainingChars--;
-                        setTimeout(deleteNextChar, 20 / playbackSpeed);
+                        // Slow playback by 30% for more comfortable pacing
+                        setTimeout(deleteNextChar, 20 / (playbackSpeed * 0.7));
                     };
 
                     deleteNextChar();
@@ -390,7 +405,8 @@ export const useAnimationEngine = (
 
                         // Delay between characters (faster for whitespace)
                         const charDelay = char === ' ' || char === '\n' ? 10 : 30;
-                        setTimeout(typeNextChar, charDelay / playbackSpeed);
+                        // Slow playback by 30% for more comfortable pacing
+                        setTimeout(typeNextChar, charDelay / (playbackSpeed * 0.7));
                     };
 
                     typeNextChar();
