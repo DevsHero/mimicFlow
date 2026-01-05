@@ -13,7 +13,9 @@
 </div>
 
 <p align="center">
-  <img src="media/sample.gif" alt="MimicFlow Demo" width="100%" />
+	<a href="https://youtu.be/kgT7SL79EHQ" target="_blank" rel="noopener noreferrer">
+		<img alt="MimicFlow Demo" src="https://img.youtube.com/vi/kgT7SL79EHQ/hqdefault.jpg" width="100%" />
+	</a>
 </p>
 
 ## 🤔 Why MimicFlow?
