@@ -56,6 +56,31 @@ MimicFlow turns code changes into a **cinematic preview sandbox**: you can **wat
 3. Save files as you work—MimicFlow auto-captures changes.
 4. Browse your history and click a card to play it back.
 
+### ⛏ Build & install from source
+
+If you want to build or iterate on MimicFlow manually, run the following from the root of the repo:
+
+```bash
+npm install
+npm run build
+```
+
+To test the extension in VS Code's Extension Development Host:
+
+```bash
+npm run watch            # keep both extension + webview builds in watch mode
+code --extensionDevelopmentPath=$PWD     # launch VS Code pointing at the repo
+```
+
+Once you have a `.vsix`, install it locally using:
+
+```bash
+npm run package
+code --install-extension dist/mimicflow-0.1.0.vsix
+```
+
+Replace the version in the path above with whatever was produced by `vsce package`.
+
 ### Quick workflow
 
 - 🗂️ Open **History** → filter/group → pick a moment
