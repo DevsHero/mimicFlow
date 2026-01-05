@@ -2,13 +2,14 @@
     "name": "mimicflow",
     "displayName": "MimicFlow",
     "description": "The Digital Mirror for AI Coding – Cinematic History & Process Visualization.",
-    "publisher": "Thanon Aphithanawat",
+    "publisher": "devshero",
+    "version": "1.0.0",
     "license": "MIT",
     "repository": {
         "type": "git",
         "url": "https://github.com/DevsHero/mimicFlow"
     },
-    "icon": "resources/dark/mimicflow.svg",
+    "icon": "media/icons/mimicflow-logo.png",
     "engines": {
         "vscode": "^1.85.0"
     },
@@ -64,7 +65,7 @@
                 {
                     "id": "mimicflow",
                     "title": "MimicFlow",
-                    "icon": "resources/dark/mimicflow.svg"
+                    "icon": "media/icons/mimicflow-logo.svg"
                 }
             ]
         },

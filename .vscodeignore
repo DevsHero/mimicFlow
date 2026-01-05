@@ -1,7 +1,17 @@
+
+*.vsix
+.vscode
+.mimicflow
+.DS_Store
+PHASE2_COMPLETE.md
+PHASE3_COMPLETE.md
+PROJECT_STATUS.md
+TEST.md
+verify-phase2.sh
 .vscode/**
 .vscode-test/**
-src/** // เราส่งแค่ dist/ (ที่ build แล้ว) ขึ้นไป
-node_modules/** // ถ้าใช้ esbuild/webpack แล้ว ไม่ต้องส่ง node_modules ขึ้นไป
+src/** 
+node_modules/** 
 .gitignore
 tsconfig.json
 vite.config.ts
