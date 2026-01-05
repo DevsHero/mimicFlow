@@ -1,5 +1,9 @@
-node_modules
-.vscode-test
-dist
-src/webview
-*.vsix
+.vscode/**
+.vscode-test/**
+src/** // เราส่งแค่ dist/ (ที่ build แล้ว) ขึ้นไป
+node_modules/** // ถ้าใช้ esbuild/webpack แล้ว ไม่ต้องส่ง node_modules ขึ้นไป
+.gitignore
+tsconfig.json
+vite.config.ts
+tailwind.config.js
+**/*.map
