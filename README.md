@@ -12,13 +12,10 @@
   <img alt="License" src="https://img.shields.io/badge/License-MIT-brightgreen" />
   <img alt="Downloads" src="https://img.shields.io/badge/Downloads-—-blue" />
   <img alt="Platform" src="https://img.shields.io/badge/Platform-macOS%20%7C%20Windows%20%7C%20Linux-lightgrey" />
+  
+  <br/>
+  <a href="https://youtu.be/kgT7SL79EHQ" target="_blank" style="display: inline-block; margin-top: 12px; padding: 10px 20px; background-color: #FF0000; color: white; text-decoration: none; border-radius: 4px; font-weight: bold;">▶ Watch Demo on YouTube</a>
 </div>
-
-<p align="center">
-	<a href="https://youtu.be/kgT7SL79EHQ" target="_blank" rel="noopener noreferrer">
-		<img alt="MimicFlow Demo" src="https://img.youtube.com/vi/kgT7SL79EHQ/hqdefault.jpg" width="100%" />
-	</a>
-</p>
 
 ## 🎯 The Problem: The Trust Gap
 
