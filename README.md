@@ -17,7 +17,7 @@
   <a href="https://youtu.be/kgT7SL79EHQ" target="_blank" style="display: inline-block; margin-top: 20px; padding: 10px 20px; background-color: #FF0000; color: white; text-decoration: none; border-radius: 4px; font-weight: bold;">▶ Watch Demo on YouTube</a>
   
   <br/><br/>
-  <img src="https://ddg21s9t062h4.cloudfront.net/0e418%2Fpreview%2F74277806%2Fmain_large.gif?response-content-disposition=inline%3Bfilename%3D%22main_large.gif%22%3B&response-content-type=image%2Fgif&Expires=1767661759&Signature=AY8PzH3p6xOelU2JMfEP7bsXb5R-lmfgx5yumbhUJKnzIpU5T4X-NsdFblApHLxQolmgjStsCp8waOk1zOtDBH7~hPy7~DDNjkxd5m1pcImbUspAwsTcJibKw7RoxovWXdW1VLbwX5ORp550oma5Ma4Rl8LKhfQ0sIRTi82Owehh1VOzLL1V70OWKTTjecNozipFRzXw6rM5DJZGwtbYoTZwXuAlzyvWUsLDwveWYmj5V366s43QRIEssz~a6GrWgFeXEx9brH1gOLo4QW7GBLEiOIB8t6q9jKGbmX8nNMWRTjBKwJC-A-g70MWVaj6T~sh-qVQwNVO0k3WxGDCxPA__&Key-Pair-Id=APKAJT5WQLLEOADKLHBQ" alt="MimicFlow Demo GIF" width="100%" style="border-radius: 6px; margin-top: 20px; display: block;" />
+  <img src="https://github.com/user-attachments/assets/9b5a2674-38c2-4e01-9040-51501952899e" alt="MimicFlow Demo GIF" width="100%" style="border-radius: 6px; margin-top: 20px; display: block;" />
 </div>
 
 ## 🎯 The Problem: The Trust Gap
