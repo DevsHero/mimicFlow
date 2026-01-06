@@ -19,7 +19,8 @@
   <br/><br/>
 
 </div>
-![MimicFlow Demo](https://github.com/user-attachments/assets/9b5a2674-38c2-4e01-9040-51501952899e)
+
+![MimicFlow Short Demo](https://github.com/user-attachments/assets/9b5a2674-38c2-4e01-9040-51501952899e)
 
 ## 🎯 The Problem: The Trust Gap
 
