@@ -13,8 +13,11 @@
   <img alt="Downloads" src="https://img.shields.io/badge/Downloads-—-blue" />
   <img alt="Platform" src="https://img.shields.io/badge/Platform-macOS%20%7C%20Windows%20%7C%20Linux-lightgrey" />
   
-  <br/>
-  <a href="https://youtu.be/kgT7SL79EHQ" target="_blank" style="display: inline-block; margin-top: 12px; padding: 10px 20px; background-color: #FF0000; color: white; text-decoration: none; border-radius: 4px; font-weight: bold;">▶ Watch Demo on YouTube</a>
+  <br/><br/>
+  <a href="https://youtu.be/kgT7SL79EHQ" target="_blank" style="display: inline-block; margin-top: 20px; padding: 10px 20px; background-color: #FF0000; color: white; text-decoration: none; border-radius: 4px; font-weight: bold;">▶ Watch Demo on YouTube</a>
+  
+  <br/><br/>
+  <img src="https://private-user-images.githubusercontent.com/7464728/532173195-9f3ff8e7-d8a3-422d-b1d9-006c0503572d.gif?jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3Njc2NjA4NDAsIm5iZiI6MTc2NzY2MDU0MCwicGF0aCI6Ii83NDY0NzI4LzUzMjE3MzE5NS05ZjNmZjhlNy1kOGEzLTQyMmQtYjFkOS0wMDZjMDUwMzU3MmQuZ2lmP1gtQW16LUFsZ29yaXRobT1BV1M0LUhNQUMtU0hBMjU2JlgtQW16LUNyZWRlbnRpYWw9QUtJQVZDT0RZTFNBNTNQUUs0WkElMkYyMDI2MDEwNiUyRnVzLWVhc3QtMSUyRnMzJTJGYXdzNF9yZXF1ZXN0JlgtQW16LURhdGU9MjAyNjAxMDZUMDA0OTAwWiZYLUFtei1FeHBpcmVzPTMwMCZYLUFtei1TaWduYXR1cmU9NDA0ZGE4ZTliM2EwMDIyY2I4MDAzN2ExZWNkNzMwNGQwMGQ0YWY5ZjVjNWQ2MDcyNTcwOTRiM2MxYTdiMzkwMyZYLUFtei1TaWduZWRIZWFkZXJzPWhvc3QifQ.F0VvyTtowxb2YPv-7NkQFgKR8NfURo8f3CNe6nh8i2k" alt="MimicFlow Demo GIF" width="100%" style="border-radius: 6px; margin-top: 20px;" />
 </div>
 
 ## 🎯 The Problem: The Trust Gap
