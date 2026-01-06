@@ -25,7 +25,7 @@
         "diff"
     ],
     "activationEvents": [
-        "*"
+        "onStartupFinished"
     ],
     "main": "./dist/extension/extension.js",
     "contributes": {
