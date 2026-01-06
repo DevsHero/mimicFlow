@@ -10,8 +10,7 @@ TEST.md
 verify-phase2.sh
 .vscode/**
 .vscode-test/**
-src/** 
-node_modules/** 
+src/**
 .gitignore
 tsconfig.json
 vite.config.ts
