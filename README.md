@@ -17,8 +17,9 @@
   <a href="https://youtu.be/kgT7SL79EHQ" target="_blank" style="display: inline-block; margin-top: 20px; padding: 10px 20px; background-color: #FF0000; color: white; text-decoration: none; border-radius: 4px; font-weight: bold;">▶ Watch Demo on YouTube</a>
   
   <br/><br/>
-  <img src="https://github.com/user-attachments/assets/9b5a2674-38c2-4e01-9040-51501952899e" alt="MimicFlow Demo GIF" width="100%" style="border-radius: 6px; margin-top: 20px; display: block;" />
+
 </div>
+![MimicFlow Demo](https://github.com/user-attachments/assets/9b5a2674-38c2-4e01-9040-51501952899e)
 
 ## 🎯 The Problem: The Trust Gap
 
