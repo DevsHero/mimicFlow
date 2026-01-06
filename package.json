@@ -19,10 +19,17 @@
     ],
     "keywords": [
         "ai",
+        "coding agent",
+        "visualization",
         "history",
         "playback",
-        "visualization",
-        "diff"
+        "diff",
+        "refactoring",
+        "ghost typing",
+        "cursor",
+        "cline",
+        "cinema",
+        "replay"
     ],
     "activationEvents": [
         "onStartupFinished"

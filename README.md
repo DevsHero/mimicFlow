@@ -2,9 +2,9 @@
 <div align="center">
   <img src="media/icons/mimicflow-logo.png" alt="MimicFlow Logo" width="150" />
 
-  <h1>MimicFlow</h1>
+  <h1>MimicFlow: The Cinematic Preview for AI Coding</h1>
 
-  <p><strong>The Digital Mirror for AI Coding – Cinematic History &amp; Process Visualization.</strong></p>
+  <blockquote><strong>Don't just accept the diff. Watch the code be written.</strong></blockquote>
 
   <a href="https://marketplace.visualstudio.com/items?itemName=devshero.mimicflow" target="_blank">
     <img alt="VS Code Marketplace" src="https://img.shields.io/badge/VS%20Code%20Marketplace-v1.0.0-007ACC?logo=visualstudiocode&amp;logoColor=white" />
@@ -20,11 +20,25 @@
 	</a>
 </p>
 
-## 🤔 Why MimicFlow?
+## 🎯 The Problem: The Trust Gap
 
-Diffs are static. AI edits happen fast. And that creates a trust gap.
+In the era of AI coding agents like **Cursor**, **Cline**, and **Roo Code**, developers often face a trust crisis. Fast-apply edits happen instantly, leaving you staring at static diffs, trying to reverse-engineer the AI's logic.
 
-MimicFlow turns code changes into a **cinematic preview sandbox** — you can **watch the code being written** before you commit.
+- Large edits feel opaque and risky
+- Reviewing diffs is mentally exhausting
+- You miss the reasoning behind each change
+- It's hard to learn from the AI's patterns
+
+## 💡 The Solution: MimicFlow
+
+**MimicFlow** bridges this gap by transforming static code changes into a **cinematic, human-like replay**. It acts as a "Digital Mirror," creating a safe sandbox where you can watch a **Ghost Cursor** type out the changes step-by-step before you commit.
+
+### 🌟 Why Developers Love MimicFlow
+
+- **👁️ Observability:** Move beyond black-box edits. See *how* the code was constructed, not just the final result.
+- **🧠 Cognitive Ease:** Reduce the mental load of reviewing massive diffs. Watching a replay is natural and intuitive.
+- **🛡️ Safety First:** Preview changes in a read-only sandbox. Your source code remains untouched until you click "Keep."
+- **🎓 Learn from AI:** Junior developers can watch the AI "pair program" with them, observing patterns and refactoring techniques in real-time.
 
 ## ✨ Key Features (Phase 1 Complete)
 
@@ -42,7 +56,25 @@ MimicFlow turns code changes into a **cinematic preview sandbox** — you can **
 2. Open the MimicFlow sidebar (Activity Bar icon) or run: `MimicFlow: Open Dashboard`.
 3. Work normally — MimicFlow auto-syncs and captures history.
 4. Browse History and play back changes in the cinematic player.
+## 📝 Changelog
 
+All notable changes to the "MimicFlow" extension will be documented in this file.
+
+### [1.0.0] - 2024-01-06
+
+- 🎉 **Initial Release:** MimicFlow is live!
+- 🎬 **Cinematic Player:** Watch code history with ghost cursor animations.
+- 🕵️‍♂️ **Auto-Capture:** Automatically records file saves as history.
+- ⏳ **Git Mining:** Generates history from past commits instantly.
+- 📺 **Playlist Mode:** Seamless playback for multi-file changes.
+
+## 💬 Feedback & Support
+
+MimicFlow is an open-source project built with ❤️.
+
+If you find a bug or have a feature request, please [open an issue](https://github.com/devshero/mimicflow/issues) on GitHub.
+
+**Enjoying MimicFlow?** Please consider leaving a ⭐ rating on the [VS Code Marketplace](https://marketplace.visualstudio.com/items?itemName=devshero.mimicflow)!
 ## �️ Development
 
 ### Prerequisites
