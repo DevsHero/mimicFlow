@@ -1,0 +1,25 @@
+# MimicFlow Ignore File
+# Use .gitignore syntax to exclude files from history capture
+
+# Ignore test files
+*.test.ts
+*.spec.ts
+__tests__/**
+
+# Ignore documentation
+docs/**
+*.md
+
+# Ignore environment files
+.env
+.env.*
+
+# Ignore generated files
+*.generated.ts
+*_generated.js
+
+# Note: The following are already ignored by default:
+# - .git/, .mimicflow/, node_modules/
+# - dist/, out/, build/, .next/
+# - *.lock files, package-lock.json
+# - Binary files (images, videos, archives, fonts)

@@ -54,6 +54,10 @@ export class DashboardProvider implements vscode.WebviewViewProvider {
                     vscode.commands.executeCommand('mimicflow.shareGhostFile', message.ghostFileId);
                     break;
 
+                case 'deleteHistory':
+                    vscode.commands.executeCommand('mimicflow.deleteHistory', message.ghostFileId);
+                    break;
+
                 case 'webviewReady':
                     console.log('[DashboardProvider] Webview confirmed ready, sending initial data');
                     await this.sendGhostFiles();

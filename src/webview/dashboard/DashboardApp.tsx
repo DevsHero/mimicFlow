@@ -51,6 +51,13 @@ export const DashboardApp: React.FC = () => {
         });
     };
 
+    const handleDelete = (ghostFileId: string) => {
+        vscodeApi.postMessage({
+            type: 'deleteHistory',
+            ghostFileId
+        });
+    };
+
     const handleShareSelected = () => {
         if (selectedFiles.size === 0) return;
         selectedFiles.forEach(id => {
@@ -228,6 +235,7 @@ export const DashboardApp: React.FC = () => {
                                         isSelected={selectedFiles.has(file.id)}
                                         onClick={() => handleCardClick(file.id)}
                                         onShare={() => handleShare(file.id)}
+                                        onDelete={() => handleDelete(file.id)}
                                         onToggleSelect={() => toggleSelection(file.id)}
                                     />
                                 ))}

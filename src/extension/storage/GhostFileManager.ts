@@ -227,7 +227,68 @@ export class GhostFileManager {
         return null;
     }
 
+    private async findSharedGhostFileUri(id: string): Promise<vscode.Uri | null> {
+        await this.initialize();
+
+        try {
+            const entries = await vscode.workspace.fs.readDirectory(this.sharedUri);
+            for (const [fileName, fileType] of entries) {
+                if (fileType !== vscode.FileType.File) continue;
+                if (!fileName.endsWith(GHOST_FILE_EXTENSION)) continue;
+                if (!fileName.includes(id)) continue;
+                return vscode.Uri.joinPath(this.sharedUri, fileName);
+            }
+        } catch {
+            // Ignore
+        }
+
+        return null;
+    }
+
+    private async findAllGhostFileUris(id: string): Promise<vscode.Uri[]> {
+        const uris: vscode.Uri[] = [];
+
+        const localUri = await this.findLocalGhostFileUri(id);
+        if (localUri) uris.push(localUri);
+
+        const sharedUri = await this.findSharedGhostFileUri(id);
+        if (sharedUri) uris.push(sharedUri);
+
+        return uris;
+    }
+
     async getStoragePath(): Promise<string> {
         return this.storageUri.fsPath;
+    }
+
+    /**
+     * Delete a ghost file by ID
+     */
+    async deleteGhostFile(id: string): Promise<boolean> {
+        try {
+            const uris = await this.findAllGhostFileUris(id);
+            if (uris.length === 0) {
+                // Nothing to delete (already removed) -> treat as success
+                console.warn(`[GhostFileManager] Ghost file not found anywhere: ${id}`);
+                return true;
+            }
+
+            await Promise.all(
+                uris.map(async (uri) => {
+                    try {
+                        await vscode.workspace.fs.delete(uri);
+                        console.log(`[GhostFileManager] ✅ Deleted ghost file: ${uri.fsPath}`);
+                    } catch (error) {
+                        console.error(`[GhostFileManager] ❌ Failed to delete ghost file at ${uri.fsPath}:`, error);
+                        throw error;
+                    }
+                })
+            );
+
+            return true;
+        } catch (error) {
+            console.error(`[GhostFileManager] ❌ Failed to delete ghost file ${id}:`, error);
+            return false;
+        }
     }
 }

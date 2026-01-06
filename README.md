@@ -7,7 +7,7 @@
   <blockquote><strong>Don't just accept the diff. Watch the code be written.</strong></blockquote>
 
   <a href="https://marketplace.visualstudio.com/items?itemName=devshero.mimicflow" target="_blank">
-    <img alt="VS Code Marketplace" src="https://img.shields.io/badge/VS%20Code%20Marketplace-v1.0.0-007ACC?logo=visualstudiocode&amp;logoColor=white" />
+    <img alt="VS Code Marketplace" src="https://img.shields.io/badge/VS%20Code%20Marketplace-v1.0.6-007ACC?logo=visualstudiocode&amp;logoColor=white" />
   </a>
   <img alt="License" src="https://img.shields.io/badge/License-MIT-brightgreen" />
   <img alt="Downloads" src="https://img.shields.io/badge/Downloads-—-blue" />
@@ -51,6 +51,8 @@ In the era of AI coding agents like **Cursor**, **Cline**, and **Roo Code**, dev
 - 🛡️ **Git Isolation:** Zero repository pollution (`.mimicflow` is git-ignored).
 - 🗂️ **Smart Dashboard:** Organize by Date, Folder, Commit, or Branch.
 - 🤝 **Team Sharing:** Curated export to shared team folders.
+- 🔇 **Noise Control:** Fine-grained `.mimicignore` filtering with auto-reload on edit and built-in defaults.
+- 🧹 **History Cleanup:** Delete entries even when the ghost file was already removed (local + shared stores).
 
 ## 🚀 Installation & Usage
 
@@ -58,6 +60,39 @@ In the era of AI coding agents like **Cursor**, **Cline**, and **Roo Code**, dev
 2. Open the MimicFlow sidebar (Activity Bar icon) or run: `MimicFlow: Open Dashboard`.
 3. Work normally — MimicFlow auto-syncs and captures history.
 4. Browse History and play back changes in the cinematic player.
+
+### 🔇 Controlling What Gets Captured (`.mimicignore`)
+
+MimicFlow automatically ignores common files like `node_modules`, build outputs, and binary files. To customize what gets ignored, create a `.mimicignore` file in your workspace root:
+
+```gitignore
+# Ignore specific files
+secrets.json
+config.local.js
+
+# Ignore patterns
+*.log
+*.tmp
+build/**
+dist/**
+
+# Ignore by extension
+*.pdf
+*.zip
+```
+
+**Default ignores** (always applied):
+- `.git/`, `.mimicflow/`, `node_modules/`, `dist/`, `out/`, `build/`
+- Lock files: `package-lock.json`, `yarn.lock`, `pnpm-lock.yaml`
+- Binary files: images, videos, archives, executables
+
+Save the file whenever you change it and MimicFlow automatically reloads the rules, so updates take effect immediately. While `.mimicignore` is open or being edited it is also excluded from capture so the file doesn’t produce history entries.
+
+If `.env` or other files are still appearing after you add them to `.mimicignore`, open the Output panel, select **MimicFlow**, and look for `✅ Ignoring file` logs to confirm the relative path and pattern match.
+
+### 🗑️ Managing History
+
+Hover over any history card in the dashboard to reveal a **trash icon** for deletion. Deleted history is permanently removed and cannot be recovered.
 ## 📝 Changelog
 
 All notable changes to the "MimicFlow" extension will be documented in this file.

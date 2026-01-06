@@ -5,6 +5,7 @@ import * as path from 'path';
 import { GhostFileManager } from '../storage/GhostFileManager';
 import { DiffEngine } from '../engine/DiffEngine';
 import { HistorySyncService } from './HistorySyncService';
+import { IgnoreService } from './IgnoreService';
 import { GhostFile } from '../../shared/types/GhostFile';
 
 const execAsync = promisify(cp.exec);
@@ -23,12 +24,17 @@ interface GitFileChange {
 }
 
 export class GitHistoryMiner {
+    private ignoreService: IgnoreService;
+
     constructor(
         private readonly ghostFileManager: GhostFileManager,
         private readonly diffEngine: DiffEngine,
         private readonly historySyncService: HistorySyncService,
         private readonly outputChannel: vscode.OutputChannel
-    ) { }
+    ) {
+        const workspaceFolder = vscode.workspace.workspaceFolders?.[0]?.uri.fsPath;
+        this.ignoreService = new IgnoreService(workspaceFolder);
+    }
 
     /**
      * Mine git history and generate ghost files for past changes
@@ -154,6 +160,11 @@ export class GitHistoryMiner {
                 if (fileChange.status !== 'M') continue;
 
                 const relativePath = fileChange.path;
+
+                // Filter out ignored files
+                if (this.ignoreService.shouldIgnore(relativePath)) {
+                    continue;
+                }
 
                 // Get content before and after
                 const oldContent = await this.getFileContentAtCommit(

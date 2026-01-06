@@ -3,7 +3,7 @@
     "displayName": "MimicFlow",
     "description": "The Digital Mirror for AI Coding – Cinematic History & Process Visualization.",
     "publisher": "devshero",
-    "version": "1.0.5",
+    "version": "1.0.6",
     "license": "MIT",
     "repository": {
         "type": "git",
@@ -122,6 +122,7 @@
         "@monaco-editor/react": "^4.6.0",
         "@vscode/codicons": "^0.0.44",
         "diff-match-patch": "^1.0.5",
+        "ignore": "^7.0.5",
         "monaco-editor": "^0.45.0",
         "react": "^18.2.0",
         "react-dom": "^18.2.0"

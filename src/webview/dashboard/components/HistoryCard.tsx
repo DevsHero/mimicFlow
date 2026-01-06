@@ -8,6 +8,7 @@ interface HistoryCardProps {
     isSelected?: boolean;
     onClick: () => void;
     onShare?: () => void;
+    onDelete?: () => void;
     onToggleSelect?: () => void;
 }
 
@@ -25,7 +26,7 @@ const formatTimeAgo = (timestamp: number): string => {
     return `${days}d ago`;
 };
 
-export const HistoryCard: React.FC<HistoryCardProps> = ({ file, isSelected = false, onClick, onShare, onToggleSelect }) => {
+export const HistoryCard: React.FC<HistoryCardProps> = ({ file, isSelected = false, onClick, onShare, onDelete, onToggleSelect }) => {
     const timeAgo = formatTimeAgo(file.timestamp);
 
     const getActionVariant = (action: string): 'default' | 'success' | 'danger' => {
@@ -133,6 +134,21 @@ export const HistoryCard: React.FC<HistoryCardProps> = ({ file, isSelected = fal
                                 aria-label="Share to team folder"
                             >
                                 <span style={{ fontSize: '14px' }}>📤</span>
+                            </button>
+                        )}
+
+                        {onDelete && (
+                            <button
+                                type="button"
+                                className="opacity-0 group-hover:opacity-100 transition-opacity px-1.5 py-1 rounded hover:bg-red-700/50"
+                                onClick={(e) => {
+                                    e.stopPropagation();
+                                    onDelete();
+                                }}
+                                title="Delete this history"
+                                aria-label="Delete this history"
+                            >
+                                <span className="codicon codicon-trash" style={{ fontSize: '14px', color: '#f48771' }} />
                             </button>
                         )}
                     </div>

@@ -5,6 +5,7 @@ import { promisify } from 'util';
 import { GhostFileManager } from '../storage/GhostFileManager';
 import { DiffEngine } from '../engine/DiffEngine';
 import { HistorySyncService } from './HistorySyncService';
+import { IgnoreService } from './IgnoreService';
 import { GhostFile } from '../../shared/types/GhostFile';
 import { randomUUID } from 'crypto';
 
@@ -14,6 +15,7 @@ export class WorkspaceWatcher {
     private lastSavedContent: Map<string, string> = new Map();
     private disposables: vscode.Disposable[] = [];
     private outputChannel: vscode.OutputChannel;
+    private ignoreService: IgnoreService;
 
     constructor(
         private readonly context: vscode.ExtensionContext,
@@ -23,6 +25,8 @@ export class WorkspaceWatcher {
         private readonly onRefresh: () => void
     ) {
         this.outputChannel = vscode.window.createOutputChannel('MimicFlow');
+        const workspaceFolder = vscode.workspace.workspaceFolders?.[0]?.uri.fsPath;
+        this.ignoreService = new IgnoreService(workspaceFolder);
         this.initialize();
     }
 
@@ -40,17 +44,33 @@ export class WorkspaceWatcher {
         try {
             const filePath = document.uri.fsPath;
 
-            // Filter out unwanted files
-            if (this.shouldIgnoreFile(filePath)) {
-                return;
-            }
-
             const workspaceFolder = vscode.workspace.getWorkspaceFolder(document.uri);
             if (!workspaceFolder) {
                 return;
             }
 
             const relativePath = path.relative(workspaceFolder.uri.fsPath, filePath);
+
+            // If .mimicignore changes, reload rules and never capture it
+            const normalizedRelativePath = relativePath.replace(/\\/g, '/');
+            if (normalizedRelativePath === '.mimicignore' || normalizedRelativePath.endsWith('/.mimicignore')) {
+                this.ignoreService.reload();
+                this.outputChannel.appendLine('[MimicFlow] Reloaded .mimicignore rules');
+                return;
+            }
+
+            // Skip files outside workspace (paths starting with ..)
+            if (relativePath.startsWith('..')) {
+                this.outputChannel.appendLine(`[MimicFlow] Skipping ${relativePath} - outside workspace`);
+                return;
+            }
+
+            // Filter out unwanted files using IgnoreService
+            if (this.ignoreService.shouldIgnore(relativePath)) {
+                this.outputChannel.appendLine(`[MimicFlow] Ignoring ${relativePath}`);
+                return;
+            }
+
             const currentContent = document.getText();
 
             // Get previous content
@@ -88,23 +108,7 @@ export class WorkspaceWatcher {
         }
     }
 
-    private shouldIgnoreFile(filePath: string): boolean {
-        const ignoredPatterns = [
-            '.git',
-            '.mimicflow',
-            'node_modules',
-            '.vscode',
-            'dist',
-            'build',
-            'out',
-            '.next',
-            'coverage',
-            '.DS_Store'
-        ];
 
-        const normalizedPath = filePath.replace(/\\/g, '/');
-        return ignoredPatterns.some(pattern => normalizedPath.includes(`/${pattern}/`) || normalizedPath.endsWith(`/${pattern}`));
-    }
 
     private async getPreviousContent(filePath: string, relativePath: string, workspacePath: string): Promise<string | null> {
         // Check cache first

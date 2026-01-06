@@ -134,6 +134,33 @@ export function activate(context: vscode.ExtensionContext) {
         );
 
         context.subscriptions.push(
+            vscode.commands.registerCommand('mimicflow.deleteHistory', async (ghostFileId: string) => {
+                try {
+                    const confirmed = await vscode.window.showWarningMessage(
+                        'Are you sure you want to delete this history?',
+                        { modal: true },
+                        'Delete'
+                    );
+
+                    if (confirmed !== 'Delete') {
+                        return;
+                    }
+
+                    const success = await ghostFileManager.deleteGhostFile(ghostFileId);
+                    if (success) {
+                        vscode.window.showInformationMessage('History deleted successfully');
+                        dashboardProvider.refresh();
+                    } else {
+                        vscode.window.showErrorMessage('Failed to delete history');
+                    }
+                } catch (error) {
+                    outputChannel.appendLine(`[MimicFlow] Delete error: ${error}`);
+                    vscode.window.showErrorMessage('Failed to delete history');
+                }
+            })
+        );
+
+        context.subscriptions.push(
             vscode.commands.registerCommand('mimicflow.shareGhostFile', async (ghostFile: unknown) => {
                 try {
                     const ghostFileId = typeof ghostFile === 'string'
